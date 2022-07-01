@@ -1,19 +1,18 @@
 import { Request } from "express"
-import { emailRegister } from "../../../../shared/global/infrastructure/helpers/email"
-import { generateId } from "../../../../shared/global/infrastructure/helpers/token"
-import {CreateUserRequest, User} from "../../../../shared/global/domain/entities"
+import { generateId } from "../../../../shared/global/helpers"
+import {CreateUserRequest, GlobalResponse, User} from "../../../../shared/global/domain/entities"
 import { UserRepository } from "../../../../shared/global/domain/repositories"
 
 const createUserInteractor = (
     userRepository: UserRepository
-) => async ( req : Request) => {
+) => async ( req : Request) : Promise<GlobalResponse> => {
 
   // Get data
   const { name, email, password } = req.body
 
   // Check email is not in the database
   const userExist : User = await userRepository.getByEmail(email)
-  if(userExist) return { error: true, msg: "Email is already registered on the DB, please try another one."}
+  if(userExist) return { errors:[{ value: email, param: "email", msg: "Email is already registered on the DB, please try another one.", location: "body"}] }
 
   // Create user object
   const createUser: CreateUserRequest = {
@@ -24,8 +23,6 @@ const createUserInteractor = (
   };
 
   const userCreated : User = await userRepository.create(createUser)
-
-  emailRegister(createUser)
 
   return userCreated;
 };

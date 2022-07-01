@@ -22,3 +22,4 @@ export const emailRegister = async (data : any) => {
       });
       console.log("data ", data)
 }
+export const generateId = () => Date.now().toString(32) + Math.random().toString(32).substring(2)

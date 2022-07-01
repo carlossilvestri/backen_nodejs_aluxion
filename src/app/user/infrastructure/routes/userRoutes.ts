@@ -1,19 +1,21 @@
-import { Router, Request, Response, NextFunction } from "express"
-import { saveUser } from "../controllers/userController"
-import { createUserMiddleware } from "../middlewares/userMiddlewares"
+import { Router } from "express"
+import { AuthJWTClass } from "../../../shared/global/classes/AuthJWTClass"
+import { createUserController, updateUserController, loginUserController, forgetPasswordUserController } from "../controllers/userController"
+import { createUserMiddleware, updateUserMiddleware } from "../middlewares/userMiddlewares"
 
 const router = Router()
+const authInstance = AuthJWTClass.getAuthJWTClassInstance()
+const authCheckJWT = authInstance.authMiddleware
 
 // Routing
 router.route('/user')
-        .post([createUserMiddleware], saveUser)
-/*
-router.route('/user_login')
-        .get(registerForm)
-        .post([createUserMiddleware], saveUser)
-        
-router.route('/user_forget_password')
-        .get(forgetPasswordForm)
+        .post([createUserMiddleware], createUserController)
+        .put([updateUserMiddleware, authCheckJWT], updateUserController)
 
-*/
+router.route('/user_login')
+        .post(loginUserController)
+       
+router.route('/user_forget_password')
+        .get(forgetPasswordUserController)
+
 export default router

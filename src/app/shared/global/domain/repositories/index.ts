@@ -1,2 +1,4 @@
 /* EXPORT HERE ALL REPOSITORIES */
-export { UserRepository } from "../../../user/domain/repositories/UserRepository";
+export { AuthRepository} from "./AuthRepository"
+export { HashPasswordRepository} from "./HashPasswordRepository"
+export { UserRepository } from "../../../../user/domain/repositories/UserRepository";

@@ -1,1 +1,1 @@
-import UserSequelize from "../../../../user/domain/data_sources/mysql/UserSequelizeClass";
+import UserSequelize from "../../../../user/application/data_sources/mysql/UserSequelizeClass";

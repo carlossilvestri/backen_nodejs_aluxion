@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import dotenv from 'dotenv'
 dotenv.config()
-import mainRoutes from './app/shared/global/infrastructure/routes/mainRoutes'
+import mainRoutes from './app/shared/global/routes/mainRoutes'
 import { connectionToSequelize } from './app/shared/global/domain/config/data_base/sequelize';
 
 /* INIT APP */
@@ -16,14 +16,14 @@ connectionToSequelize()
 
 
 // Public folder. Now: We can have access to localhost/css/*
-app.use(express.static(path.join(__dirname, '../frontend/public')))
+// app.use(express.static(path.join(__dirname, '../frontend/public')))
 
 // Routing
 app.use('/', mainRoutes)
 
-// Definir puerto y arrancar el proyecto
+// Define the port and run the project
 const port : number = Number(process.env.PORT) || 3000
 
 app.listen(port, ()=> {
-    console.log(`El servidor esta funcionando en el puerto ${port}`)
+    console.log(`Server is working on port ${port}`)
 })

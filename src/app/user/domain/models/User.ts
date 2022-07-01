@@ -1,10 +1,10 @@
-import { DataTypes } from "sequelize";
+import { DataTypes } from "sequelize";  
 import bcrypt from "bcrypt"
 import { sequelizeConnection } from "../../../shared/global/domain/config/data_base/sequelize";
 import { User as UserEntity } from "../entities/User";
 
 export const User = sequelizeConnection.define('user_aluxion', {
-    user_id: {
+    id_user: {
         primaryKey: true,
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -35,3 +35,8 @@ export const User = sequelizeConnection.define('user_aluxion', {
 }
 
 )
+
+// Custom methods using prototypes
+User.prototype.checkPassword = function(password: string) : boolean {
+    return bcrypt.compareSync(password, this.password)
+}

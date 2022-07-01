@@ -26,7 +26,7 @@ export class ExpressValidatorMessagesClass {
             }
 
             res.status(httpStatus.UNPROCESSABLE_ENTITY).json({
-                data: errors.array()
+                errors: errors.array()
             })
         }
     }
