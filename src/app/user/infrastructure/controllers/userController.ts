@@ -1,11 +1,17 @@
 import { Request, Response, NextFunction } from "express"
 import httpStatus from "http-status";
-import {CreateUserInteractor as createUserInteractor, LoginUserInteractor as loginUserInteractor, UpdateUserInteractor as updateUserInteractor} from "../../application/interactors"
+import {
+    CreateUserInteractor as createUserInteractor,
+    DeleteUserInteractor as deleteUserInteractor, 
+    LoginUserInteractor as loginUserInteractor, 
+    UpdateUserInteractor as updateUserInteractor,
+    ForgetPasswordInteractor as forgetPasswordInteractor,
+    GetUsersInteractor as getUsersInteractor
+} from "../../application/interactors"
 import { GlobalResponse } from "../../../shared/global/domain/entities"
 
 /* USER CONTROLLER ACTIONS */
 
-/* This method should be used for POST and PUT */
 export const createUserController = async (req: Request, res: Response) => {
     const response: GlobalResponse = await createUserInteractor(req)
     //@ts-ignore
@@ -28,5 +34,15 @@ export const loginUserController = async (req: Request, res: Response) => {
 }
 
 export const forgetPasswordUserController = async (req: Request, res: Response) => {
-    res.status(httpStatus.OK).json({data: "funciona"})
+    const response = await forgetPasswordInteractor(req)
+    res.status(httpStatus.OK).json(response)
+}
+
+export const deleteUserController = async (req: Request, res: Response) => {
+    const response = await deleteUserInteractor(req)
+    res.status(httpStatus.OK).json(response)
+}
+export const getUsersController = async (req: Request, res: Response) => {
+    const response = await getUsersInteractor(req)
+    res.status(httpStatus.OK).json(response)
 }

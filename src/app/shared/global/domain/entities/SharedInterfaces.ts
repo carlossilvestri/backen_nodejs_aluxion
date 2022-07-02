@@ -1,4 +1,4 @@
-import { User } from "."
+import { User, Image } from "."
 
 export interface ExpressValidator {
     value:      string
@@ -10,4 +10,4 @@ export interface ExpressValidatorResponse {
     errors: ExpressValidator[]
 }
 
-export type GlobalResponse = ExpressValidatorResponse | User
+export type GlobalResponse = ExpressValidatorResponse | User | Image

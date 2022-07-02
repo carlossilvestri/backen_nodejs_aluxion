@@ -1,4 +1,5 @@
 /* EXPORT HERE ALL ENTITIES */
-export { CreateUserRequest, UpdateUserRequest } from "../../../../user/domain/entities/User";
-export { User } from "../../../../user/domain/entities/User";
+export { User, CreateUserRequest, CreateUserRequestSent, UpdateUserRequest, UpdateUserRequestSent } from "../../../../user/domain/entities/User";
+export { Image, CreateImageRequest } from "../../../../image/domain/entities/Image";
+export { UserImage, CreateUserImageRequest } from "../../../../user_image/domain/entities/UserImage";
 export { GlobalResponse, ExpressValidatorResponse } from "./SharedInterfaces";

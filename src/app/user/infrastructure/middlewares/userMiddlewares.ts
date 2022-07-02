@@ -15,3 +15,7 @@ export const updateUserMiddleware = validatorMiddleware.validate([
     check('email').optional({ checkFalsy: true }),
     check('password').optional({ checkFalsy: true }),
 ])
+
+export const forgetPasswordMiddleware = validatorMiddleware.validate([
+    check('email').isEmail().withMessage('email is not valid'),
+])

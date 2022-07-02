@@ -78,3 +78,7 @@ typings/
 
 # Visual Studio Code
 .vscode/
+
+#
+tmp/*
+sql-data
