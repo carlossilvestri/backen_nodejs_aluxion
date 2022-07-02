@@ -13,7 +13,11 @@ Among the services that will have to be performed are:
 - File upload (AWS S3)
 - Docker support
 - Swagger documentation on route /swagger
-- 
+
+
+## Database model
+<img style="margin: 1px 15px;" src="https://github.com/carlossilvestri/backen_nodejs_aluxion/blob/main/docs/DBModel.png" alt="laughing" width="650" />
+
 ## Installation
 
 This is a [Node.js](https://nodejs.org/en/) module available through the
@@ -22,7 +26,7 @@ This is a [Node.js](https://nodejs.org/en/) module available through the
 Before installing, [download and install Node.js](https://nodejs.org/en/download/).
 Node.js 14 was used in this project
 
-Clone the repository
+Clone the repository using
 `git clone` command
 
 ```console
