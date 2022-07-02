@@ -1,0 +1,252 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0",
+        "title": "Aluxion Test",
+        "contact": {}
+    },
+    "host": "example.com",
+    "basePath": "/",
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header"
+        }
+    },
+    "schemes": ["http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/auth/user": {
+            "post": {
+                "summary": "Create",
+                "tags": ["user"],
+                "operationId": "Create",
+                "deprecated": false,
+                "produces": ["application/json"],
+                "consumes": ["application/x-www-form-urlencoded"],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update",
+                "tags": ["user"],
+                "operationId": "Update",
+                "deprecated": false,
+                "produces": ["application/json"],
+                "consumes": ["application/x-www-form-urlencoded"],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": {
+                            "type": "apiKey",
+                            "name": "authorization",
+                            "in": "header"
+                        }
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete",
+                "tags": ["user"],
+                "operationId": "Delete",
+                "deprecated": false,
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "security": [
+                  {
+                      "Bearer": {
+                          "type": "apiKey",
+                          "name": "authorization",
+                          "in": "header"
+                      }
+                  }
+              ]
+            },
+            "get": {
+              "summary": "Get Users",
+              "tags": ["user"],
+              "operationId": "GetUsers",
+              "deprecated": false,
+              "produces": ["application/json"],
+              "parameters": [],
+              "responses": {
+                  "200": {
+                      "description": "",
+                      "headers": {}
+                  }
+              },
+              "security": [
+                {
+                    "Bearer": {
+                        "type": "apiKey",
+                        "name": "authorization",
+                        "in": "header"
+                    }
+                }
+            ]
+          }
+        },
+        "/auth/user_login": {
+            "post": {
+                "summary": "Login",
+                "tags": ["user"],
+                "operationId": "Login",
+                "deprecated": false,
+                "produces": ["application/json"],
+                "consumes": ["application/x-www-form-urlencoded"],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            }
+        },
+        "/auth/user_forget_password": {
+            "post": {
+                "summary": "Forget password",
+                "tags": ["user"],
+                "operationId": "Forgetpassword",
+                "deprecated": false,
+                "produces": ["application/json"],
+                "consumes": ["application/x-www-form-urlencoded"],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": ""
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                }
+            }
+        },
+        "/image": {
+            "post": {
+                "summary": "Create",
+                "tags": ["image"],
+                "operationId": "PostCreate",
+                "deprecated": false,
+                "produces": ["application/json"],
+                "consumes": ["application/x-www-form-urlencoded"],
+                "parameters": [
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "required": true,
+                        "type": "file",
+                        "description": "Image to upload. (Max size: 2mb)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "headers": {}
+                    }
+                },
+                "security": [
+                  {
+                      "Bearer": {
+                          "type": "apiKey",
+                          "name": "authorization",
+                          "in": "header"
+                      }
+                  }
+              ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "user"
+        },
+        {
+            "name": "image"
+        }
+    ]
+}

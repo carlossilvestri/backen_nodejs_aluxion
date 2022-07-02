@@ -21,7 +21,7 @@ const loginUserInteractor =
             response = {
                 errors: [
                     {
-                        value: password,
+                        value: email,
                         msg: "Email is not registered",
                         param: "email",
                         location: "body",
