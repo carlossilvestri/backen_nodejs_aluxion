@@ -67,21 +67,21 @@
                     {
                         "name": "name",
                         "in": "formData",
-                        "required": true,
+                        "required": false,
                         "type": "string",
                         "description": ""
                     },
                     {
                         "name": "email",
                         "in": "formData",
-                        "required": true,
+                        "required": false,
                         "type": "string",
                         "description": ""
                     },
                     {
                         "name": "password",
                         "in": "formData",
-                        "required": true,
+                        "required": false,
                         "type": "string",
                         "description": ""
                     }
