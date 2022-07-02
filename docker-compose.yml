@@ -17,6 +17,7 @@ services:
         volumes: 
           - '.:/app'
           - '/app/node_modules'
+        command: 'npm run docker'
     mysql_server:
         image: mysql:8.0.28
         container_name: mysql_db_LOCAL
