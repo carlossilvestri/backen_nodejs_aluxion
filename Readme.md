@@ -18,6 +18,8 @@ Among the services that will have to be performed are:
 ## Database model
 <img style="margin: 1px 15px;" src="https://github.com/carlossilvestri/backen_nodejs_aluxion/blob/main/docs/DBModel.png" alt="laughing" width="650" />
 
+## Swagger
+<img style="margin: 1px 15px;" src="https://github.com/carlossilvestri/backen_nodejs_aluxion/blob/main/docs/swagger.png" alt="laughing" width="650" />
 ## Installation
 
 This is a [Node.js](https://nodejs.org/en/) module available through the
