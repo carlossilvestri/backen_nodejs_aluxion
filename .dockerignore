@@ -2,3 +2,6 @@
 */temp*
 */*/temp*
 temp?
+node_modules
+dist
+.vscode

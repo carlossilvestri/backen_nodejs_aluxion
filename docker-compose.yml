@@ -2,9 +2,7 @@ version: "3.8"
 
 services: 
     app:
-        build: 
-          context: .
-          dockerfile: ./Dockerfile
+        build: .
         depends_on:
           - mysql_server
         ports:
@@ -12,12 +10,11 @@ services:
         working_dir: /app
         env_file: ./.env
         environment:
-            DB_PASSWORD: 'a'
-            DB_HOST: '172.24.0.1'
+            DB_PASSWORD: $DB_PASSWORD
+            DB_HOST: $DB_HOST
         volumes: 
-          - '.:/app'
-          - '/app/node_modules'
-        command: 'npm run docker'
+          - .:/app
+          - /app/node_modules
     mysql_server:
         image: mysql:8.0.28
         container_name: mysql_db_LOCAL
@@ -25,13 +22,10 @@ services:
           - 3306:3306
         env_file: ./.env
         environment:
-          MYSQL_ROOT_PASSWORD: 'a'
+          MYSQL_ROOT_PASSWORD: $DB_PASSWORD
           MYSQL_DATABASE: $DB_NAME
           MYSQL_USER: $DB_USER
           MYSQL_PASSWORD: $DB_PASSWORD
         volumes:
           - ./docker/mysql/aluxion_test.sql:/docker-entrypoint-initdb.d/aluxion_test.sql
           - ./sql-data/db:/var/lib/mysql
-    
-
-    

@@ -34,7 +34,7 @@ export const sequelizeConnection  : Sequelize = new Sequelize(dbName, dbUser, db
 })
 
 export const connectionToSequelize = async () => {
-    console.log("dbName ", dbName, " dbPassword ", dbPassword)
+    // console.log("dbName ", dbName, " dbPassword ", dbPassword, " dbHost ", dbHost, " dbUser ", dbUser)
     try {
         await sequelizeConnection.authenticate()
         sequelizeConnection.sync()

@@ -1,14 +1,13 @@
 {
   "name": "aluxion_backend_test",
   "version": "1.0.0",
-  "description": "Proyecto MVC, Nodejs, Bienes Raices",
+  "description": "API NodeJS + Express + Sequelize + Hexagonal Architecture + AWS S3 Images",
   "main": "dist/app.js",
   "scripts": {
     "test": "mocha --require ts-node/register src/**/*.test.ts src/**/*.test.ts",
     "test:watch": "mocha --require ts-node/register --watch --watch-files domains/**/*.ts,test/**/*.test.ts,src/**/*.test.ts test/**/*.test.ts src/**/*.test.ts",
     "build": "tsc",
-    "prod": "npm run clean && tsc && npm run copyFolder && npm run triggerDist",
-    "copyFolder": "copyfiles --u 1 ./src/frontend/** ./dist",
+    "prod": "npm run clean && tsc && npm run triggerDist",
     "dev": "ts-node-dev --respawn --transpile-only ./src/app.ts",
     "triggerDist": "node ./dist/app.js",
     "start": "npm run prod",
@@ -16,9 +15,9 @@
     "clean": "rimraf dist"
   },
   "keywords": [
-    "MCV",
-    "Pug",
-    "Tailwind",
+    "Hexagonal",
+    "Express",
+    "NodeJS",
     "MySQL",
     "Sequelize"
   ],

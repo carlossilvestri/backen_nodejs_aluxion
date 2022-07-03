@@ -1,11 +1,7 @@
 # Sensitive data
 .env
 *.key
-service-account.json
-sm-rides-private-key
-sm-rides-public-key
-sm-service-account-api-dev
-
+.docker.env
 
 #MAC Files
 .DS_Store
