@@ -1,5 +1,11 @@
-[![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
-  Fast, unopinionated, minimalist web framework for [node](http://nodejs.org).
+## Technologies used in this project:
+* NodeJS V14
+* Express framework
+* TypeScript
+* Docker
+* Sequelize ORM (MySQL)
+* JWT Authentication
+* Swagger
 ## Aluxion Backend Test
 This is a Rest API for a file upload and management website.
 Among the services that will have to be performed are:
@@ -7,19 +13,13 @@ Among the services that will have to be performed are:
 - Login
 - Update a user
 - JWT Authentication
-- Get list of users
+- Get list of users paginated
 - Registration (With encrypted password)
 - Forgot password with email sending.
 - File upload (AWS S3)
 - Docker support
-- Swagger documentation on route /swagger
-
-
-## Database model
-<img style="margin: 1px 15px;" src="https://github.com/carlossilvestri/backen_nodejs_aluxion/blob/main/docs/DBModel.png" alt="laughing" width="650" />
-
-## Swagger
-<img style="margin: 1px 15px;" src="https://github.com/carlossilvestri/backen_nodejs_aluxion/blob/main/docs/swagger.png" alt="laughing" width="650" />
+- Swagger documentation. ( You can find it on route /swagger )
+- 
 ## Installation
 
 This is a [Node.js](https://nodejs.org/en/) module available through the
@@ -28,7 +28,7 @@ This is a [Node.js](https://nodejs.org/en/) module available through the
 Before installing, [download and install Node.js](https://nodejs.org/en/download/).
 Node.js 14 was used in this project
 
-Clone the repository using
+Clone the repository
 `git clone` command
 
 ```console
@@ -40,13 +40,10 @@ Installation is done using the
 ```console
  npm install
 ```
+Create .env file on the root directory of the project, copy and paste .env.TEMPLATE file.
+Set the environment variables.
 
-Run code on development mode
-`npm run dev` command
-
-```console
-  npm run dev
-```
+#### PRODUCTION MODE
 Or run the code on production mode
 `npm run start` command
 
@@ -59,7 +56,13 @@ Or run the code on docker. (Docker is required on your computer)
 ```console
   docker-compose up
 ```
+#### DEVELOPMENT MODE
+Run code on development mode
+`npm run dev` command
 
+```console
+  npm run dev
+```
 ## Features
 
   * Robust routing
